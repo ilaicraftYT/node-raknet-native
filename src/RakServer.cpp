@@ -140,9 +140,8 @@ Napi::Value RakServer::Listen(const Napi::CallbackInfo& info) {
     // TODO: fix ipv6
     bool b = server->Startup(this->options.maxConnections, socketDescriptors, 1) == RakNet::RAKNET_STARTED;
     if (!b) {
-            Napi::TypeError::New(env, "Server failed to start").ThrowAsJavaScriptException();
-            return Napi::Boolean::New(env, false);
-        }
+         Napi::TypeError::New(env, "Server failed to start").ThrowAsJavaScriptException();
+         return Napi::Boolean::New(env, false);
     }
 
     // Construct context data
